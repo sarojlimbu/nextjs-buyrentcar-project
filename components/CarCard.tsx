@@ -7,7 +7,7 @@ import { CarDetails, CustomButton } from ".";
 import { calculateCarRent, generateCarImageUrl } from "@/utils";
 import Image from "next/image";
 
-export default function CarCard({ car }: CardCarProps) {
+export default function CarCard({ car }: CardCarProps, index: number) {
   const [isOpen, setIsOpen] = useState(false);
   const {
     city_mpg,
@@ -25,7 +25,7 @@ export default function CarCard({ car }: CardCarProps) {
 
   const carRent = calculateCarRent(city_mpg, year);
   return (
-    <div className="car-card group">
+    <div className="car-card group" key={index}>
       <div className="car-card__content">
         <h2 className="car-card__content-title">
           {make} {model}
